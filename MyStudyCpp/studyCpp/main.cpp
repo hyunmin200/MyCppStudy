@@ -1,5 +1,9 @@
 #include <iostream>
 
+#define HUNGRY 1
+// 1.가독성
+// 2.유지보수
+
 // 주석
 // 설명 역활, 코드로 인식되지 않는다.
 
@@ -89,12 +93,86 @@ int main() {
 	iTrue = 0 && 200;
 	iTrue = 0 || 0;
 
+	// 비교 연산자
+	// ==, !=
+	// 참, 거짓
+
+
 	// 구문
 	// if, else
-	// switch case
+	data = 0;
+	if (0 && 200)
+	{
+		data = 100;
+	}
 
+	if (data == 100) 
+	{
+		
+	}
+	/*else if ()
+	{
+
+	}
+	else if () 
+	{
+
+	}*/
+	else 
+	{
+
+	}
+	// switch case
+	switch (10)
+	{
+	case 10:
+		break;
+	case 20:
+		break;
+	default:
+		break;
+	}
+
+	int iTest = 10;
+	if (iTest == 10) 
+	{
+
+	}
+	else if (iTest == 20) 
+	{
+
+	}
+	else 
+	{
+
+	}
 	// 삼항 연산자
 	// :?
+
+	iTest == 20 ? iTest = 100 : iTest == 200;
 	
+	if (iTest == 20) 
+	{
+		iTest = 100;
+	}
+	else
+	{
+		iTest = 200;
+	}
+
+	// 비트 연산자
+	// 쉬프트 <<, >>
+	unsigned char byte = 10;
+	byte <<= 3; // 은 2 ^ n 배수이고
+	byte <<= 2; // 은 2 ^ n 나눈 몫이다
+
+	// 비트 곱(&), 합(|), xor(^), 반전(~)
+	// & 둘다 1인 경우 1
+	// | 둘중 하나라도 1 이면 1
+	// ^ 같으면 0, 다르면 1
+	// ~ 1은 0으로, 0은 1로
+	
+	int iStatus = HUNGRY;
+
 	return 0;
 }
