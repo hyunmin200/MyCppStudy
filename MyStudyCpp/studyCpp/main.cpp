@@ -1,6 +1,20 @@
 #include <iostream>
 
-#define HUNGRY 1
+#define HUNGRY   0x001
+#define THIRSTY  0x002
+#define TIRED    0x004
+#define FIRE	 0x008
+
+#define COLD	 0x010
+#define POISON   0x020
+#define COLD1	 0x040
+#define POISON1  0x080
+
+#define COLD2	 0x100
+#define POISON2  0x200
+#define COLD3	 0x400
+#define POISON3  0x800
+
 // 1.가독성
 // 2.유지보수
 
@@ -172,7 +186,19 @@ int main() {
 	// ^ 같으면 0, 다르면 1
 	// ~ 1은 0으로, 0은 1로
 	
-	int iStatus = HUNGRY;
+	unsigned int iStatus = 0;
+
+	// 상태추가
+	iStatus |= HUNGRY;
+	iStatus |= THIRSTY;
+
+	// 상태 확인
+	if (iStatus & THIRSTY) {
+
+	}
+
+	// 특정 자리 비트 제거
+	iStatus &= ~THIRSTY; 
 
 	return 0;
 }
