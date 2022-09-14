@@ -21,6 +21,16 @@
 // 주석
 // 설명 역활, 코드로 인식되지 않는다.
 
+
+//전역변수
+int global = 0;
+
+
+int Add(int left, int right){
+	return left + right;
+}
+
+//함수
 int main() {
 	// 자료형  (크기 단위, byte) Data Type
 	// 정수형 : char(1), short(2), int(4), long(4), long long(8)
@@ -199,6 +209,32 @@ int main() {
 
 	// 특정 자리 비트 제거
 	iStatus &= ~THIRSTY; 
+
+	// 변수
+	// 1. 지역변수
+	// 2. 전역변수
+	// 3. 정적변수
+	// 4. 외부변수
+
+
+	// 지역변수
+	int iName = 0;
+	// 괄호 안에 선언된 변수(함수, 지역)
+	{
+		//변수명 규칙
+		int iName = 100;
+
+		iName;
+	}
+
+
+	// 함수
+	data = Add(10, 20);
+
+
+
+
+
 
 	return 0;
 }
