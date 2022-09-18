@@ -1,0 +1,162 @@
+namespace(이름공간)
+
+namespace가 왜 필요한가?
+프로그램을 개발할 때 라이브러리가 필요해서
+A사 B사 C사 라이브러리를 가져와서 사용할 때
+A,B,C사에 Func라는 함수가 다 있다.
+이럴 때 구분이 불가능하다.
+A사의 Func B사의 Func C사의 Func라는 것을 명시할 수 있다면
+이름때문에 생기는 문제를 막을 수 있다
+이것이 네임스페이스이다.
+
+함수나 변수를 그룹화 시키는 것이 네임스페이스이다.
+
+namespace BestComImpl
+{
+	void SimpleFunc(void) {
+		std::cout << "BestCom이 정의한 함수" << std::endl;
+	}
+}
+
+namespace ProgComImpl
+{
+	void SimpleFunc(void) {
+		std::cout << "ProgCom이 정의한 함수" << std::endl;
+	}
+}
+
+int main(void) {
+	BestComImpl::SimpleFunc();
+	ProgComImpl::SimpleFunc();
+	return 0;
+}
+이름공간을 중괄호로 만들 수 있음
+이름 공간 안에 함수를 선언 할 때에는
+BestComImpl::SimpleFunc(); 이런식으로 선언 할 수 있다.
+여기서 :: 범위 지정 연산자라고 해서 SimpleFunc()라는 함수를 호출 하는데
+어디에 있는 SimpleFunc()함수를 호출 할 것인지 알려주는 연산자 이다.
+즉 이름공간을 지정해주는 연산자 이다.
+
+위에 예제처럼 범위 지정 연산자 앞에 네임스페이스에 따라 출력되는 것이 다르다.
+
+그럼 함수 이름을 바꾸면 되지 왜 이렇게해요? 라고 할 수 있는데
+앞에서 말한 것 처럼 A,B,C에 라이브러리를 사용한다면
+A라는 이름공간을 정의해버리면 그안에 무엇을 정의하든 B와 C의 눈치를 보지 않을 수 있다.
+즉 다른 사의 라이브러리와 이름 충돌이 일어나지 않을 수 있다.
+
+#include <iostream>
+
+namespace BestComImpl
+{
+	void SimpleFunc(void);
+}
+
+namespace ProgComImpl
+{
+	void SimpleFunc(void);
+}
+
+int main1(void) {
+	BestComImpl::SimpleFunc();
+	ProgComImpl::SimpleFunc();
+	return 0;
+}
+
+void BestComImpl::SimpleFunc(void) {
+	std::cout << "BestCom이 정의한 함수" << std::endl;
+}
+
+void ProgComImpl::SimpleFunc(void) {
+	std::cout << "ProgCom이 정의한 함수" << std::endl;
+}
+이런 식으로 선언과 정의를 분리 할 수 있다.
+
+namespace BestComImpl
+{
+	void SimpleFunc(void);
+}
+
+namespace BestComImpl
+{
+	void PrettyFunc(void);
+}
+이런 식으로도 따로따로 사용해도 어차피 동일한 이름 공간안에 존재하는 것이다.
+
+void BestComImpl::SimpleFunc(void) {
+	std::cout << "BestCom이 정의한 함수" << std::endl;
+	PrettyFunc(); // 같은 이름
+	ProgComImpl::SimpleFunc; // 다른 공간
+}
+그래서 이런 식으로도 사용이 가능하다
+
+namespace Parent
+{
+	int num = 2;
+	namespace SubOne
+	{
+		int num = 3;
+	}
+	namespace SubTwo
+	{
+		int num = 4;
+	}
+}
+이런 식으로 이름 공간을 중첩시킬 수 있다.
+SubOne안에 num을 코드로 나타내기 위해서는
+Parent::SubOne::num
+이런식으로 이름공간을 체계적으로 분리 시킬 수 있다.
+
+std::cout
+std::cin
+std::endl
+이런 것들은 우리가 이제 이름공간에 선언되어 있다는 것을 알 수 있다.
+
+namespace std
+{
+	cout ....
+	cin ....
+	endl ....
+}
+대충 이런식으로 선언 되어 있다는 것을 알수있다.
+이렇듯 이름충돌을 막기 위해서, C++표준에서 제공하는 다양한 요소들은ㅇ 이름공간 std 안에 선언되어 있다.
+
+using을 이용한 이름공간의 명시
+
+using std::cin;
+using std::cout;
+using std::endl;
+이렇게 하면 
+그냥 cin, cout, endl 이런식으로만 쓰겠다는 뜻이다.
+
+그런데 이것을 using nammespace std;
+로 사용한다면 std안에 있는 것을 그냥 다 std를 명시하지 않고 사용할 수 있다.
+
+너무 빈번한 using namespace의 선언은 이름의 충돌을 막기위한 이름공간
+의 선언을 의미 없게 만든다. 따라서 제한적으로 사용할 필요가 있다.
+
+공부할 때는 괜찮다 이렇다고 해서 개발에서 쓰지 말라는 것이 아니라
+제한적으로 매우 선별을 하여서 코드의 편의를 누리라는 소리이다.
+
+매번 AAA::BBB::CCC를 매번 이렇게 쓰기에는 불편하기 때문에 
+별칭을 두고 선언할 수 있다
+ABC=AAA::BBB::CCC
+
+만약 C안에 num이있다면
+ABC::num = 10;이런 식으로 쓸 수 있다.
+
+int val = 100; //전역변수
+
+int SimpleFunc(void)
+{
+	int val = 20; // 지역변수
+	val += 3; // 지역변수 val의 값 3 증가
+	::val += 7; // 전역변수 val의 값 7 증가
+}
+이름공간이 없는 이름공간이있다.
+예를 들자면 사람이 있다면 사람이름이 없는게 이름이다.
+모든 사람은 이름이 있어야 한다는 가정이 있을때
+이름이 없는게 내 이름이다라고 할 수 있다.
+val은 없다 무가 애에 이름이라는 것이다
+그래서 ::val이 애의 이름이 되는 것이다.
+
+그래서 ::val += 7;을 하면 전역변수 val의 7을 더하는 것이다.
