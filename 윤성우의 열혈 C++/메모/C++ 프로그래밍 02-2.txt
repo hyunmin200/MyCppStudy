@@ -1,0 +1,32 @@
+새로운 자료형 bool
+
+c언어에서 참과 거짓을 사용할 때
+참은 1(0이외의 숫자) 거짓은 0이였다.
+그래서 
+#define TURE 1
+#define FALSE 0
+이렇게 쓰기도 하였다
+
+이게 불편해서
+true와 false가 만들어짐 1과 0이 아닌 순수 데이터 이다.
+
+하지만 true와 false를 출력을 해보면 0과 1이 나온다
+그래서 결국 true와 false는 0과 1이라고 말할 수 있는데
+이것은 c의 전통적인 배경에서 나오게 된 것이다.
+true를 출력할 때 정수로 변환이 되어서 1이 출력이 되고
+false는 출력할 때 정수로 변환이 되어서 0이 출력이되는 것이
+라고 약속 되어있는 것이다.
+
+cout << "sizeof 1: " << sizeof(1) << endl;
+cout << "sizeof 0: " << sizeof(0) << endl;
+cout << "sizeof true: " << sizeof(true) << endl;
+cout << "sizeof false: " << sizeof(false) << endl;
+이런 식으로 출력 해보면 알 수 있다.
+
+bool의 이해
+- true와 false는 bool형 데이터이다.
+- true와 false 정보를 저장할 수 있는 변수는 bool형 변수이다.
+
+예)
+bool isTrueOne = true;
+bool isTrueTwo = false;
