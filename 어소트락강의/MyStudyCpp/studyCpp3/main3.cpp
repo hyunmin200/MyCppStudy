@@ -1,23 +1,23 @@
 #include <stdio.h>
 
-//ÇÔ¼ö
+//í•¨ìˆ˜
 // Factorial
-int Factorial(int _iNum) 
+int Factorial(int _iNum)
 {
 	int iValue = 1;
 
-	for (int j = 0; j < _iNum - 1; ++j) 
+	for (int j = 0; j < _iNum - 1; ++j)
 	{
 		iValue *= (j + 2);
 	}
 
 	Factorial(10);
-	
+
 	return iValue;
 }
 
-// Àç±ÍÇÔ¼ö
-// °¡µ¶¼º, ±¸ÇöÀÇ ¿ëÀÌ
+// ìž¬ê·€í•¨ìˆ˜
+// ê°€ë…ì„±, êµ¬í˜„ì˜ ìš©ì´
 
 
 int main() {
