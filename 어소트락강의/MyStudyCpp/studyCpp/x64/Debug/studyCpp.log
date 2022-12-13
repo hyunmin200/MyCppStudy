@@ -1,4 +1,1 @@
-﻿  main.cpp
-C:\Users\qazws\Desktop\Study\C++\MyStudyCpp\studyCpp\main.cpp(43,7): warning C4309: '=': 상수 값이 잘립니다.
-C:\Users\qazws\Desktop\Study\C++\MyStudyCpp\studyCpp\main.cpp(99,19): warning C4305: '초기화 중': 'int'에서 'bool'(으)로 잘립니다.
-  studyCpp.vcxproj -> C:\Users\qazws\Desktop\Study\C++\MyStudyCpp\x64\Debug\studyCpp.exe
+﻿  studyCpp.vcxproj -> C:\Users\200won\Desktop\StudyFolder\Study\C++\MyCppStudy\어소트락강의\MyStudyCpp\x64\Debug\studyCpp.exe

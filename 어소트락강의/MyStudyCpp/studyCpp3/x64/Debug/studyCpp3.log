@@ -1,2 +1,3 @@
 ﻿  main3.cpp
-  studyCpp3.vcxproj -> C:\Users\qazws\Desktop\Study\C++\MyStudyCpp\x64\Debug\studyCpp3.exe
+C:\Users\200won\Desktop\StudyFolder\Study\C++\MyCppStudy\어소트락강의\MyStudyCpp\studyCpp3\main3.cpp(17): warning C4717: 'Factorial': 모든 제어 경로에서 재귀적입니다. 함수로 인해 런타임 스택 오버플로가 발생합니다.
+  studyCpp3.vcxproj -> C:\Users\200won\Desktop\StudyFolder\Study\C++\MyCppStudy\어소트락강의\MyStudyCpp\x64\Debug\studyCpp3.exe
