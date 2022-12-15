@@ -20,8 +20,7 @@ int g_i = 0; //Data 영역
 // 프로그램 시작 시 생성
 // 프로그램 종료 시 해제
 
-// 정적 변수
-static int g_iStatic = 0;
+#include "common.h"
 
 void Test() {
 	static int i = 0;
@@ -30,6 +29,9 @@ void Test() {
 }
 
 int main() {
-	g_iStatic = 1;
+	g_iStatic = 100;
+	g_iExtern = 500;
+
+	Add(0, 0);
 	return 0;
 }
